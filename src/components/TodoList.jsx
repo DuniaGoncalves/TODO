@@ -1,4 +1,4 @@
-import { useState, useId } from "react";
+import { useState } from "react";
 
 export const TodoList = () => {
   const [inputValue, setInputValue] = useState("");
@@ -13,16 +13,16 @@ export const TodoList = () => {
 
 
   const AddTodoItem = () => {
-    const todoId = useId();
     return (
       <ul>
-        {todoItems.map((todoItem) => (
-          <li key={todoId.id}>
+        {todoItems.map((todoItem, i) => (
+          <li key={{i}}>
+            {i}
             <input
-              id={`${todoId}-todo`}
+              id='todo'
               type="checkbox"
             />
-            <label htmlFor={`${todoId}-task`}>
+            <label htmlFor='todo'>
               {todoItem}
             </label>
           </li>
